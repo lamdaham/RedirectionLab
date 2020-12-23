@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class PigLatin {
 
 	public static boolean contains(String elem, String[] list){
@@ -20,7 +22,7 @@ public class PigLatin {
 
 	public static String PigLatin(String s) {
 		String[] digraphs = {"bl", "br", "ch", "ck", "cl", "cr", "dr", "fl", "fr", "gh", "gl", "gr", "ng", "ph", "pl", "pr", "qu", "sc", "sh", "sk", "sl", "sm", "sn", "sp", "st", "sw", "th", "tr", "tw", "wh", "wr"};
-		if (contains(s.substring(0,2), digraphs)){
+		if (s.length()>=2 && contains(s.substring(0,2), digraphs)){
 			return s.substring(2, s.length())+s.substring(0,2)+"ay";
 		} else {
 			return pigLatinSimple(s);
@@ -40,9 +42,16 @@ public class PigLatin {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(pigLatinBest("4check"));
-		System.out.println(pigLatinBest("fish!"));
-		System.out.println(pigLatinBest("*emu"));
+		Scanner scanner = new Scanner(System.in);
+		while(scanner.hasNextLine()) {
+			Scanner n = new Scanner(scanner.nextLine());
+			while(n.hasNext()){
+				String userInput = n.next();
+
+				System.out.print(pigLatinBest(userInput.toLowerCase()) +" ");
+			}
+			System.out.println();
+		}
 	}
 }
 
