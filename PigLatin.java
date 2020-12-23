@@ -27,10 +27,22 @@ public class PigLatin {
 		}
 	}
 
+
+	public static String pigLatinBest(String s){
+		String[] alphabet = {"q","w","e","r","t","y","u","i","o","p","a","s","d","f","g","h","j","k","l","z","x","c","v","b","n","m"};		
+		if (!contains(s.substring(0,1),alphabet)) {
+			return s;
+		}
+		if (!contains(s.substring(s.length()-1),alphabet)) {
+			return PigLatin(s.substring(0,s.length()-1)) + s.substring(s.length()-1);
+		}
+		return PigLatin(s);
+	}
+
 	public static void main(String[] args) {
-		System.out.println(PigLatin("check"));
-		System.out.println(PigLatin("skee!"));
-		System.out.println(PigLatin("emu"));
+		System.out.println(pigLatinBest("4check"));
+		System.out.println(pigLatinBest("fish!"));
+		System.out.println(pigLatinBest("*emu"));
 	}
 }
 
