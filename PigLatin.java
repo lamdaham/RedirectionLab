@@ -20,7 +20,7 @@ public class PigLatin {
 	}
 
 
-	public static String PigLatin(String s) {
+	public static String pigLatin(String s) {
 		String[] digraphs = {"bl", "br", "ch", "ck", "cl", "cr", "dr", "fl", "fr", "gh", "gl", "gr", "ng", "ph", "pl", "pr", "qu", "sc", "sh", "sk", "sl", "sm", "sn", "sp", "st", "sw", "th", "tr", "tw", "wh", "wr"};
 		if (s.length()>=2 && contains(s.substring(0,2), digraphs)){
 			return s.substring(2, s.length())+s.substring(0,2)+"ay";
@@ -36,9 +36,9 @@ public class PigLatin {
 			return s;
 		}
 		if (!contains(s.substring(s.length()-1),alphabet)) {
-			return PigLatin(s.substring(0,s.length()-1)) + s.substring(s.length()-1);
+			return pigLatin(s.substring(0,s.length()-1)) + s.substring(s.length()-1);
 		}
-		return PigLatin(s);
+		return pigLatin(s);
 	}
 
 	public static void main(String[] args) {
